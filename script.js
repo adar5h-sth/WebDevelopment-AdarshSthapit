@@ -1,12 +1,11 @@
-// Navigation section 
 document.addEventListener("DOMContentLoaded", function () {
-    // Get the current page's URL path
+    // Navigation section
     let path = window.location.pathname;
     
     if (path === "/") {
         path = "/index.html";
     }
-    // Map the path to each link's id
+    
     const navLinks = {
         '/index.html': 'home-link',
         '/blogs.html': 'blogs-link',
@@ -14,38 +13,37 @@ document.addEventListener("DOMContentLoaded", function () {
         '/about.html': 'about-link'
     };
 
-    // Find the corresponding link and add the "active" class
     const currentLink = navLinks[path];
     if (currentLink) {
         document.getElementById(currentLink).classList.add('active');
     }
-});
 
-// Form Validation Section
-document.addEventListener("DOMContentLoaded", function () {
+    // Form Validation Section
     const storyForm = document.querySelector('.story-form');
     const anonForm = document.querySelector('.anon-form');
 
-    // Handle submission for the story form
-    storyForm.addEventListener('submit', function (event) {
-        if (!validateForm(storyForm)) {
-            event.preventDefault(); // Prevent form submission
-            alert("Please fill in all required fields.");
-        } else {
-            alert("Your story has been submitted successfully!");
-        }
-    });
-    // Handle submission for the anonymous form
-    anonForm.addEventListener('submit', function (event) {
-        if (!validateForm(anonForm)) {
-            event.preventDefault(); // Prevent form submission
-            alert("Please fill in all required fields.");
-        } else {
-            alert("Your anonymous message has been submitted successfully!");
-        }
-    });
+    if (storyForm) {
+        storyForm.addEventListener('submit', function (event) {
+            if (!validateForm(storyForm)) {
+                event.preventDefault(); 
+                alert("Please fill in all required fields.");
+            } else {
+                alert("Your story has been submitted successfully!");
+            }
+        });
+    }
 
-    // Function to validate required fields in a form
+    if (anonForm) {
+        anonForm.addEventListener('submit', function (event) {
+            if (!validateForm(anonForm)) {
+                event.preventDefault(); 
+                alert("Please fill in all required fields.");
+            } else {
+                alert("Your anonymous message has been submitted successfully!");
+            }
+        });
+    }
+
     function validateForm(form) {
         let isValid = true;
         const requiredFields = form.querySelectorAll('[required]');
@@ -56,45 +54,38 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         return isValid;
     }
-});
 
-// Button Highlight Section
-document.addEventListener('DOMContentLoaded', () => {
+    // Button Highlight Section
     const startJourneyButton = document.querySelector('.cta-button');
     const loginButton = document.getElementById('login-link');
 
-    // Highlight the login button when the start journey button is clicked
-    startJourneyButton.addEventListener('click', () => {
-        loginButton.classList.remove('highlight');
-        loginButton.classList.add('highlight');
-
-        // Remove highlight class after a short delay
-        setTimeout(() => {
-            loginButton.classList.remove('highlight');
-        }, 300);
-    });
+    if (startJourneyButton && loginButton) {
+        startJourneyButton.addEventListener('click', () => {
+            loginButton.classList.add('highlight');
+            setTimeout(() => {
+                loginButton.classList.remove('highlight');
+            }, 300);
+        });
+    }
 });
 
-
-// chat section
+// Chat Section
 function openChat(name) {
     const messagesDiv = document.getElementById('messages');
-    messagesDiv.innerHTML = `<h3>Chat with ${name}</h3>`;
+    if (messagesDiv) {
+        messagesDiv.innerHTML = `<h3>Chat with ${name}</h3>`;
+    }
 }
 
 function sendMessage() {
     const input = document.getElementById('messageInput');
     const messagesDiv = document.getElementById('messages');
 
-    // Check if the input is not empty before sending
-    if (input.value.trim() !== '') {
+    if (input && messagesDiv && input.value.trim() !== '') {
         const newMessage = document.createElement('div');
         newMessage.textContent = input.value;
         messagesDiv.appendChild(newMessage);
-        input.value = ''; // Clear input after sending
-        messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+        input.value = ''; 
+        messagesDiv.scrollTop = messagesDiv.scrollHeight; 
     }
 }
-
-
-
