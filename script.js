@@ -1,8 +1,11 @@
 // Navigation section 
 document.addEventListener("DOMContentLoaded", function () {
     // Get the current page's URL path
-    const path = window.location.pathname;
-
+    let path = window.location.pathname;
+    
+    if (path === "/") {
+        path = "/index.html";
+    }
     // Map the path to each link's id
     const navLinks = {
         '/index.html': 'home-link',
