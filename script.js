@@ -1,49 +1,41 @@
+// // Navigation section 
 document.addEventListener("DOMContentLoaded", function () {
-    // Navigation section
-    let path = window.location.pathname;
-    
-    if (path === "/") {
-        path = "/index.html";
-    }
-    
-    const navLinks = {
-        '/index.html': 'home-link',
-        '/blogs.html': 'blogs-link',
-        '/profile.html': 'profile-link',
-        '/about.html': 'about-link'
-    };
+    const links = document.querySelectorAll('.nav-links a');
+    const currentLocation = window.location.pathname.split("/").pop();
 
-    const currentLink = navLinks[path];
-    if (currentLink) {
-        document.getElementById(currentLink).classList.add('active');
-    }
+    links.forEach(link => {
+        if (link.getAttribute('href') === currentLocation) {
+            link.classList.add('active');
+        }
+    });
+});
 
-    // Form Validation Section
+
+// Form Validation Section
+document.addEventListener("DOMContentLoaded", function () {
     const storyForm = document.querySelector('.story-form');
     const anonForm = document.querySelector('.anon-form');
 
-    if (storyForm) {
-        storyForm.addEventListener('submit', function (event) {
-            if (!validateForm(storyForm)) {
-                event.preventDefault(); 
-                alert("Please fill in all required fields.");
-            } else {
-                alert("Your story has been submitted successfully!");
-            }
-        });
-    }
+    // Handle submission for the story form
+    storyForm.addEventListener('submit', function (event) {
+        if (!validateForm(storyForm)) {
+            event.preventDefault(); // Prevent form submission
+            alert("Please fill in all required fields.");
+        } else {
+            alert("Your story has been submitted successfully!");
+        }
+    });
+    // Handle submission for the anonymous form
+    anonForm.addEventListener('submit', function (event) {
+        if (!validateForm(anonForm)) {
+            event.preventDefault(); // Prevent form submission
+            alert("Please fill in all required fields.");
+        } else {
+            alert("Your anonymous message has been submitted successfully!");
+        }
+    });
 
-    if (anonForm) {
-        anonForm.addEventListener('submit', function (event) {
-            if (!validateForm(anonForm)) {
-                event.preventDefault(); 
-                alert("Please fill in all required fields.");
-            } else {
-                alert("Your anonymous message has been submitted successfully!");
-            }
-        });
-    }
-
+    // Function to validate required fields in a form
     function validateForm(form) {
         let isValid = true;
         const requiredFields = form.querySelectorAll('[required]');
@@ -54,38 +46,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         return isValid;
     }
+});
 
-    // Button Highlight Section
+// Button Highlight Section
+document.addEventListener('DOMContentLoaded', () => {
     const startJourneyButton = document.querySelector('.cta-button');
     const loginButton = document.getElementById('login-link');
 
-    if (startJourneyButton && loginButton) {
-        startJourneyButton.addEventListener('click', () => {
-            loginButton.classList.add('highlight');
-            setTimeout(() => {
-                loginButton.classList.remove('highlight');
-            }, 300);
-        });
-    }
+    // Highlight the login button when the start journey button is clicked
+    startJourneyButton.addEventListener('click', () => {
+        loginButton.classList.remove('highlight');
+        loginButton.classList.add('highlight');
+
+        // Remove highlight class after a short delay
+        setTimeout(() => {
+            loginButton.classList.remove('highlight');
+        }, 300);
+    });
 });
 
-// Chat Section
+
+// chat section
 function openChat(name) {
     const messagesDiv = document.getElementById('messages');
-    if (messagesDiv) {
-        messagesDiv.innerHTML = `<h3>Chat with ${name}</h3>`;
-    }
+    messagesDiv.innerHTML = `<h3>Chat with ${name}</h3>`;
 }
 
 function sendMessage() {
     const input = document.getElementById('messageInput');
     const messagesDiv = document.getElementById('messages');
 
-    if (input && messagesDiv && input.value.trim() !== '') {
+    // Check if the input is not empty before sending
+    if (input.value.trim() !== '') {
         const newMessage = document.createElement('div');
         newMessage.textContent = input.value;
         messagesDiv.appendChild(newMessage);
-        input.value = ''; 
-        messagesDiv.scrollTop = messagesDiv.scrollHeight; 
+        input.value = ''; // Clear input after sending
+        messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
     }
 }
+
+
