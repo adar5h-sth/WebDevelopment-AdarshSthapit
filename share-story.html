@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>MindMatters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <img src="Images/Logo 1.png" alt="Logo" class="logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" id="home-link">HOME</a></li>
+                    <li><a href="blogs.html" id="blogs-link">BLOGS</a></li>
+                    <li><a href="profile.html" id="profile-link">PROFILE</a></li>
+                    <li><a href="about.html" id="about-link">ABOUT</a></li>
+                </ul>
+            </div>
+            <div class="navbar-right">
+                <ul class="nav-links">
+                    <li><a href="#" id="login-link">Login</a></li>
+                    <li><a href="#" class="signup-button">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <!-- Share Your Story Section -->
+        <h2>Share Your Story</h2>
+        <form action="#" class="story-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First name*</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last name*</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Share your story here..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <!-- Share Anonymously Section -->
+        <h2>Share Anonymously</h2>
+        <form action="#" class="anon-form">
+            <div class="form-group">
+                <label for="anon-message">Message</label>
+                <textarea id="anon-message" name="anon-message" placeholder="Your anonymous message here..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="contact-footer">
+        <div class="footer-left">
+            <h2>Get in Touch</h2>
+            <p>We'd love to hear from you! Reach out to us for any inquiries or collaborations.</p>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://pinterest.com" target="_blank"><i class="fab fa-pinterest"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="email">
+                <a href="mailto:contact@example.com">
+                    <i class="fas fa-envelope"></i> contact@example.com
+                </a>
+            </div>
+            <div class="phone">
+                <a href="tel:+1234567890">
+                    <i class="fas fa-phone"></i> +1 234 567 890
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

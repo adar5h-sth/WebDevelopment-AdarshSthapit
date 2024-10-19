@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <img src="Images/Logo 1.png" alt="Logo" class="logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" id="home-link">HOME</a></li>
+                    <li><a href="blogs.html" id="blogs-link">BLOGS</a></li>
+                    <li><a href="profile.html" id="profile-link">PROFILE</a></li>
+                    <li><a href="about.html" id="about-link">ABOUT</a></li>
+                </ul>
+            </div>
+            <div class="navbar-right">
+                <ul class="nav-links">
+                    <li><a href="chat.html" id="chats">Chats</a></li>
+                    <li><a href="#" class="logout-button">Logout </a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <div class="chat-container">
+        <div class="chat-list">
+            <h2>Chats</h2>
+            <div class="chat-item" onclick="openChat('John')">
+                <div class="chat-avatar">👤</div>
+                <div class="chat-details">
+                    <div class="chat-name">John</div>
+                    <div class="chat-message">Last Message</div>
+                </div>
+            </div>
+            <div class="chat-item" onclick="openChat('Kabuto')">
+                <div class="chat-avatar">👩‍💼</div>
+                <div class="chat-details">
+                    <div class="chat-name">Kabuto</div>
+                    <div class="chat-message">Last Message</div>
+                </div>
+            </div>
+            <div class="chat-item" onclick="openChat('Shisui')">
+                <div class="chat-avatar">👩‍💼</div>
+                <div class="chat-details">
+                    <div class="chat-name">Shisui</div>
+                    <div class="chat-message">Last Message</div>
+                </div>
+            </div>
+        </div>
+        <div class="messaging-area">
+            <h2>Messaging Area</h2>
+            <div class="messages" id="messages"></div>
+            <input type="text" id="messageInput" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
