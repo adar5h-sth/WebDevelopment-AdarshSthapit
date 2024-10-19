@@ -86,4 +86,8 @@ function sendMessage() {
     }
 }
 
+// In Development Alert 
+function showDevelopmentAlert() {
+    alert("Feature under development. Please check back later!");
+}
 
