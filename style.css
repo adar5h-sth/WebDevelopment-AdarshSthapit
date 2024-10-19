@@ -467,6 +467,12 @@ body {
     font-weight: bold;
 }
 
+.edit-details {
+    color: blue;
+    cursor: pointer;
+    text-align: center; 
+}
+
 /* Recently Accessed Section */
 .recently-accessed {
     padding: 20px;
